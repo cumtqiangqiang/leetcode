@@ -15,16 +15,24 @@ Explanation: The answer is "b", with the length of 1.
 
 
 def lengthOfLongestSubstring(s: str) -> int:
-    dic = {}
-    maxL = 0
-    start = 0
-    for i in range(len(s)):
-        letter = s[i]
-        if letter not in dic.keys():
-            dic[s[i]] = 0
-        else:
-            diff = i - start
-            maxL = diff if diff > maxL else maxL
+    sub = ""
+    maxLen = 0
+    subLen = 0
+    for ch in s:
+        if ch in sub:
+            index = sub.index(ch)
+            sub = sub[index + 1:]
+            subLen = len(sub)
+
+        sub += ch
+        subLen += 1
+        if maxLen > subLen:
+               maxLen = subLen
+
+    return  maxLen
+
+
+
 
 
 def otherLengthOfLongestSubstring(s):
@@ -49,6 +57,6 @@ def otherLengthOfLongestSubstring(s):
 
 
 if __name__ == '__main__':
-    # lengthOfLongestSubstring("abcdaef")
+    lengthOfLongestSubstring("abcdaef")
 
-    otherLengthOfLongestSubstring("abcdaef")
+    # otherLengthOfLongestSubstring("abcdaef")

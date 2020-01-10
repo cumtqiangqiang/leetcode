@@ -25,26 +25,28 @@ class ListNode:
 
 
 def addTwoNumbers(self, l1: ListNode, l2: ListNode):
-   n, r = divmod(l1.value + l2.value, 10)
-   l1, l2 = l1.next, l2.next
-   head = node = ListNode(r)
+    n, r = divmod(l1.value + l2.value, 10)
+    l1, l2 = l1.next, l2.next
+    head = node = ListNode(r)
 
-   while l1 or l2:
-       if l1 and l2:
-           n, r = divmod(l1.value + l2.value + n, 10)
-       elif l1:
-           n, r = divmod(l1.value + l2.value + n, 10)
-           l1 = l1.next
-       else:
-           n, r = divmod(l2.value + n, 10)
-           l2 = l2.next
-       node.next = ListNode(r)
-       node = node.next
+    while l1 or l2:
+        if l1 and l2:
+            n, r = divmod(l1.value + l2.value + n, 10)
+        elif l1:
+            n, r = divmod(l1.value + l2.value + n, 10)
+            l1 = l1.next
+        else:
+            n, r = divmod(l2.value + n, 10)
+            l2 = l2.next
+            node.next = ListNode(r)
+            node = node.next
     if n:
         node.next = ListNode(n)
         node = node.next
 
-    return  head
+    return head
+
+
 if __name__ == '__main__':
     list_node1 = ListNode(2)
     list_node2 = ListNode(4)
@@ -53,9 +55,6 @@ if __name__ == '__main__':
     list_node2.next = list_node3
 
     l = list_node1
-    while(l.next != None):
+    while(l.next is not None):
         print(l.value)
         l = l.next
-
-
-
