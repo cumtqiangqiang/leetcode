@@ -1,8 +1,8 @@
 from defutils import  Solution
 import sys
 if __name__ == '__main__':
-	a = Solution()
-	c = a.longestPalindrome('babbdbb')
-	print(pow(2,31)-1)
-	print(pow(2,31))
-	print(sys.maxsize)
+	# a = Solution()
+	a = "12321"
+	b = a[::-1]
+	isP = a == b
+	print(b)
