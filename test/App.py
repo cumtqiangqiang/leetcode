@@ -5,4 +5,4 @@ if __name__ == '__main__':
 	a = "12321"
 	b = a[::-1]
 	isP = a == b
-	print(b)
+	print(range(10))
