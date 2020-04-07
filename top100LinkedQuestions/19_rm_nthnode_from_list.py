@@ -36,6 +36,27 @@ class Solution:
 		j.next = j.next.next  # remove j.next
 		return head
 
+	def removeNthFromEnd1(self, head: ListNode, n: int) -> ListNode:
+		dump =  ListNode(0)
+		dump.next = head
+		length = 0
+		while(head is not  None):
+			length+=1
+			head = head.next
+
+		head = dump
+		n = length - n
+		while(n >  0):
+			head = head.next
+			n -= 1
+
+		head.next = head.next.next
+
+		return dump.next
+
+
+
+
 
 if __name__ == '__main__':
 	n5 = ListNode(5)
@@ -48,14 +69,17 @@ if __name__ == '__main__':
 	n3.next = n4
 	n4.next = n5
 	n = n1
-	print(n.val)
-	while n.next is not  None:
-		n = n.next
+	while n is not  None:
 		print(n.val)
+		n = n.next
+
 
 	s = Solution()
-	res = s.removeNthFromEnd(n1,2)
-	# print(res)
+	res = s.removeNthFromEnd1(n1,2)
+	print("===============")
+	while res is not  None:
+		print(res.val)
+		res =res.next
 
 
 
