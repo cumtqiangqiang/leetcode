@@ -3,7 +3,7 @@
 '''
  @Time    : 2020/1/2 10:46 PM
  @Author  : Qiang,Q
- @File    : rm_dup_sorted_arr.py
+ @File    : 26_rm_dup_sorted_arr.py
  @Software: PyCharm Community Edition
  
  Remove Duplicates from Sorted Array
